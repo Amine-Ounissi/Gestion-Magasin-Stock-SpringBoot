@@ -60,13 +60,13 @@ public class StockServiceImpl implements IStockService{
 	}
 
 	@Override
-	@Scheduled(cron = "*/60 * * * * *" )
+	@Scheduled(cron = "*/15 * * * * *" )
 	public void retrieveStatusStock() {
-		Set<Stock> ss=(Set<Stock>) stockRepository.findAll();
+		List<Stock> ss=(List<Stock>) stockRepository.findAll();
 		for (Stock stock : ss) {
-			if(stock.getQteMin()>stock.getQte()){
-				System.out.println(stock.toString());
-				log.info("stock "+stock.toString());
+			if(stock.getQteMin()<stock.getQte()){
+				//System.out.println(stock.toString());
+				log.info("stock :"+"Libelle :"+stock.getLibelleStock()+ stock.getQteMin());
 
 			}
 		}

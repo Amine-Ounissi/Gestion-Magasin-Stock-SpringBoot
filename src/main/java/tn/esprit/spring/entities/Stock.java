@@ -37,4 +37,6 @@ public class Stock implements Serializable {
 	
 	@OneToMany(mappedBy = "stock" ,cascade = CascadeType.ALL)
 	public Set<Produit> produits;
+
+	
 }
