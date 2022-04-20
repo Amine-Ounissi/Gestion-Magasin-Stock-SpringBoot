@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ public class StockServiceImplTest {
 		IStockService stockService;
 
 		@Test
-		public void testsaveStock() {
+		public void testsaveStock() throws ParseException {
 						
 				List<Stock> stocks = stockService.retrieveStock();
 				int expected=stocks.size();
@@ -52,5 +53,9 @@ public class StockServiceImplTest {
 					assertNotEquals(expected+1, stockService.retrieveStock().size());
 			
 		}
+		/*@Test	
+		public void testSaveStock() throws ParseException {
+		}*/
+		
 
 }

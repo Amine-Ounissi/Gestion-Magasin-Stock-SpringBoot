@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,17 +49,26 @@ public class StockServiceImpl implements IStockService{
 		return stockRepository.save(s);
 	}
 
-	@Override
+	/* @Override
 	public void deleteStock(Long id) {
-		stockRepository.deleteById(id);
-		
-	}
+		stockRepository.deleteById(id);		
+	}*/
 
 	@Override
 	public List<Stock> testQte(Integer qt) {
 		return stockRepository.findByQteMinGreaterThan(qt);
 	}
+	@Override
+	public void deleteStock(Long id) {
+		Optional<Stock> stock = stockRepository.findById(id);
 
+		if (stock.isPresent()) {
+			stockRepository.deleteById(id);
+		} else {
+			log.info("No stock record exist for given id");
+		}
+
+	}
 	@Override
 	@Scheduled(cron = "*/15 * * * * *" )
 	public void retrieveStatusStock() {
