@@ -8,7 +8,7 @@ Spring Boot Application.
 
 
 ## Tools to be used
-STS (Spring Tool Suite).
-MySQL for the database.
+'''STS (Spring Tool Suite).'''
+'''MySQL for the database.'''
 Postman to test Rest API.
 Server: Tomcat 8.5.
