@@ -1,6 +1,6 @@
 # Gestion Magasin-Stock
 
-Spring Boot Application.
+Spring Boot Application using Spring Data JPA, JPQL, Spring Core (IoC), Spring MVC, Lombok, Spring Scheduler, JUnit, Spring AOP and Spring Security.
 
 ## Database Schema
 
